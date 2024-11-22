@@ -1,0 +1,40 @@
+﻿<h2>Manage Claims</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Lecturer</th>
+            <th>Hours Worked</th>
+            <th>Status</th>
+            <th>Document</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.ClaimId</td>
+                <td>@claim.Lecturer</td>
+                <td>@claim.HoursWorked</td>
+                <td>@claim.Status</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(claim.DocumentPath))
+                    {
+                        <a href="@claim.DocumentPath" target="_blank">Download Document</a>
+                    }
+                </td>
+                <td>
+                    <form asp-action="ApproveClaim" method="post">
+                        <input type="hidden" name="claimId" value="@claim.ClaimId" />
+                        <button type="submit" class="btn-approve" @(claim.Status == "Pending" ? "" : "disabled")>Approve</button>
+                    </form>
+                    <form asp-action="RejectClaim" method="post">
+                        <input type="hidden" name="claimId" value="@claim.ClaimId" />
+                        <button type="submit" class="btn-reject" @(claim.Status == "Pending" ? "" : "disabled")>Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

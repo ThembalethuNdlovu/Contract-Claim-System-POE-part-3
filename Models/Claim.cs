@@ -1,6 +1,6 @@
 ﻿#nullable enable
 
-namespace PROG6212_Part1.Models
+namespace ContractClaimSystem_POE_Part3.Models
 {
     // Represents a lecturer's claim for hours worked
     public class Claim

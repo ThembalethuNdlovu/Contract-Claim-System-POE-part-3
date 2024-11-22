@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using PROG6212_Part1.Models;
+using ContractClaimSystem_POE_Part3.Models;
 
-namespace PROG6212_Part1.Controllers
+namespace ContractClaimSystem_POE_Part3.Controllers
 {
     public class LecturerController : Controller
     {
